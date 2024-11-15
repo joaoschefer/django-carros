@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Carros</title>
+</head>
+<body>
+    <h1>Carros Disponíveis</h1>
+    <ul>
+        {% for carro in carros %}
+        <li>
+            <a href="{% url 'carros:detalhes_carro' carro.id %}">
+                {{ carro.marca }} {{ carro.modelo }} ({{ carro.ano }})
+            </a> - R$ {{ carro.preco }}
+        </li>
+        {% empty %}
+        <p>Nenhum carro disponível no momento.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ carro.marca }} {{ carro.modelo }}</title>
+</head>
+<body>
+    <h1>{{ carro.marca }} {{ carro.modelo }}</h1>
+    <p><strong>Ano:</strong> {{ carro.ano }}</p>
+    <p><strong>Preço:</strong> R$ {{ carro.preco }}</p>
+    <p><strong>Cor:</strong> {{ carro.cor }}</p>
+    <p><strong>Quilometragem:</strong> {{ carro.quilometragem }} km</p>
+    <p><strong>Descrição:</strong> {{ carro.descricao }}</p>
+    <a href="{% url 'carros:listar_carros' %}">Voltar para a lista de carros</a>
+</body>
+</html>
