@@ -10,6 +10,7 @@ class Carro(models.Model):
     descricao = models.TextField()
     data_criacao = models.DateTimeField(auto_now_add=True)
     data_atualizacao = models.DateTimeField(auto_now_add=True)
+    imagem = models.ImageField(upload_to='carros/', blank=True, null=True)
 
     def __str__(self):
         return f"{self.marca} {self.modelo} {self.ano}"

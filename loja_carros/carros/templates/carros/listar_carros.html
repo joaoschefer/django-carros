@@ -12,6 +12,10 @@
             <a href="{% url 'carros:detalhes_carro' carro.id %}">
                 {{ carro.marca }} {{ carro.modelo }} ({{ carro.ano }})
             </a> - R$ {{ carro.preco }}
+            {% if carro.imagem %}
+                <br>
+                <img src="{{ carro.imagem.url }}" alt="Imagem de {{ carro.marca }}" width="200">
+            {% endif %}
         </li>
         {% empty %}
         <p>Nenhum carro disponível no momento.</p>
