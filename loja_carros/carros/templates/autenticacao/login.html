@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <!-- Campo para o nome de usuário -->
+        <label for="username">Nome de Usuário:</label>
+        <input type="text" name="username" id="username" required><br><br>
+        
+        <!-- Campo para a senha -->
+        <label for="password">Senha:</label>
+        <input type="password" name="password" id="password" required><br><br>
+        
+        <!-- Botão de envio -->
+        <button type="submit">Entrar</button>
+    </form>
+
+    <p>Não tem uma conta? <a href="{% url 'carros:cadastro' %}">Cadastre-se</a></p>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

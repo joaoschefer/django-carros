@@ -5,7 +5,11 @@
     <title>Página Inicial</title>
 </head>
 <body>
-    <h1>Bem-vindo ao Sistema de Carros</h1>
+    {% if request.user.if_authenticated %}
+        <p>Bem-vindo, {{ request.user.username }}!</p>
+    {% else %}
+        <p>Você precisa estar logado.</p>
+    {% endif %}
     <ul>
         <li>
             <a href="{% url 'carros:listar_carros' %}">Ver lista de carros</a>
@@ -13,6 +17,10 @@
         <li>
             <a href="{% url 'carros:cadastrar_carro' %}">Cadastrar novo carro</a>
         </li>
+
+        <a href="{% url 'carros:login' %}"><button>Login</button></a>
+
+        <a href="{% url 'carros:cadastro' %}"><button>Cadastro</button></a>
     </ul>
 </body>
 </html>
