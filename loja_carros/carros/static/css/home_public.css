@@ -1,0 +1,77 @@
+/* Reset básico */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+/* Carrossel */
+.carousel {
+    width: 100%; /* O carrossel ocupa toda a largura da tela */
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    background-color: white;
+}
+
+.carousel-images {
+    display: flex;
+    animation: slide 10s infinite;
+    width: 300%; /* Ajuste proporcional para o carrossel funcionar com 3 imagens */
+}
+
+.carousel-images img {
+    width: 100vw; /* A imagem ocupa 100% da largura da tela */
+    flex-shrink: 0;
+    object-fit: cover; /* Garante que a imagem se ajuste sem deformar */
+    height: 400px; /* Altura maior da imagem */
+}
+
+@keyframes slide {
+    0%, 33% {
+        transform: translateX(0);
+    }
+    34%, 66% {
+        transform: translateX(-100vw); /* Transição para a segunda imagem */
+    }
+    67%, 100% {
+        transform: translateX(-200vw); /* Transição para a terceira imagem */
+    }
+}
+
+/* Botões */
+.buttons {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.buttons button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buttons button:hover {
+    background-color: #0056b3;
+}
+
+.buttons a {
+    text-decoration: none;
+}

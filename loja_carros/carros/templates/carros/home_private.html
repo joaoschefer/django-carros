@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Inicial Privada</title>
+</head>
+<body>
+    <p>Bem-vindo, {{ user.username }}!</p>
+    <ul>
+        <li><a href="{% url 'carros:listar_carros' %}">Ver lista de carros</a></li>
+        <li><a href="{% url 'carros:cadastrar_carro' %}">Cadastrar novo carro</a></li>
+    </ul>
+    <a href="{% url 'carros:logout' %}"><button>Logout</button></a>
+</body>
+</html>

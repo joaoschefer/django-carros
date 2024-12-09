@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Inicial Pública</title>
+    <link rel="stylesheet" href="{% static 'css/home_public.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo à Loja de Carros</h1>
+    </header>
+    
+    <!-- Carrossel de Imagens -->
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="{% static 'img/Bugatti.jpg' %}" alt="Carro 1">
+            <img src="{% static 'img/Lambo.jpg' %}" alt="Carro 2">
+            <img src="{% static 'img/Mustang.jpg' %}" alt="Carro 3">
+        </div>
+    </div>
+
+    <!-- Botões de Login e Cadastro -->
+    <div class="buttons">
+        <a href="{% url 'carros:login' %}"><button>Login</button></a>
+        <a href="{% url 'carros:cadastro' %}"><button>Cadastro</button></a>
+    </div>
+
+</body>
+</html>

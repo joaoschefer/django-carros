@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Carro 
@@ -9,29 +9,26 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.contrib import messages
 
-# view para pagina home
-@login_required
-def home(request):
+def public_home(request):
     if request.user.is_authenticated:
-        username = request.user.username
-        return render(request, 'carros/home.html', {'user': request.user})
-    else:
-        return render(request, 'carros/home.html', {'message': 'Você precisa estar logado para acessar essa página.'})
+        return redirect('carros:home_private')  # Redireciona para a home privada
+    return render(request, 'carros/home_public.html')  # Página pública
+    
+def private_home(request):
+    return render(request, 'carros/home_private.html', {'user': request.user})
 
-# view que vai listar os carros
-@login_required
+def custom_logout_view(request):
+    logout(request)  
+    return redirect('carros:home') 
+
 def listar_carros(request):
     carros = Carro.objects.all()
     return render(request, 'carros/listar_carros.html', {'carros': carros})
 
-# view que vai exibir detalhes de um carro especifico
-@login_required
 def detalhes_carro(request, carro_id):
     carro = get_object_or_404(Carro, id=carro_id)
     return render(request, 'carros/detalhes_carro.html', {'carro': carro})
 
-# view para cadastrar um novo carro
-@login_required
 def cadastrar_carro(request):
     if request.method == 'POST':
         form = CarroForm(request.POST, request.FILES)
@@ -47,20 +44,17 @@ def login_view(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        # Tentar autenticar o usuário
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
-            # Se o usuário for autenticado, faz login
             login(request, user)
-            return redirect('carros:home')  # Redireciona para a página inicial
-
+            return redirect('carros:home_private')  # Página privada após login
         else:
-            # Caso contrário, exibe uma mensagem de erro
             messages.error(request, 'Credenciais inválidas')
             return render(request, 'autenticacao/login.html')
 
     return render(request, 'autenticacao/login.html')
+
 
 
 def cadastro_view(request):
