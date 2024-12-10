@@ -2,15 +2,28 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Carro</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/cadastrar_carro.css' %}">
 </head>
 <body>
-    <h1>Cadastrar Novo Carro</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Salvar</button>
-    </form>
-    <a href="{% url 'carros:listar_carros' %}">Voltar para a lista de carros</a>
+    <div class="cadastro-container">
+        <header>
+            <h1>Cadastrar Novo Carro</h1>
+        </header>
+        
+        <form method="post" enctype="multipart/form-data" class="form-cadastro">
+            {% csrf_token %}
+            <div class="form-content">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn-salvar">Salvar</button>
+        </form>
+
+        <footer>
+            <a href="{% url 'carros:listar_carros' %}" class="btn-voltar">Voltar para a lista de carros</a>
+        </footer>
+    </div>
 </body>
 </html>

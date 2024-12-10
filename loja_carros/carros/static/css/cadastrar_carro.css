@@ -1,0 +1,86 @@
+/* Reset básico */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container principal */
+.cadastro-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Header */
+header h1 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+.form-cadastro {
+    text-align: left;
+}
+
+.form-content p {
+    margin-bottom: 15px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+/* Botão de salvar */
+.btn-salvar {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-salvar:hover {
+    background-color: #218838;
+}
+
+/* Botão de voltar */
+.btn-voltar {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #007bff;
+    padding: 10px 20px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-voltar:hover {
+    background-color: #007bff;
+    color: #fff;
+}

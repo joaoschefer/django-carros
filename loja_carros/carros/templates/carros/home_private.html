@@ -2,14 +2,36 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Inicial Privada</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home_private.css' %}">
 </head>
 <body>
-    <p>Bem-vindo, {{ user.username }}!</p>
-    <ul>
-        <li><a href="{% url 'carros:listar_carros' %}">Ver lista de carros</a></li>
-        <li><a href="{% url 'carros:cadastrar_carro' %}">Cadastrar novo carro</a></li>
-    </ul>
-    <a href="{% url 'carros:logout' %}"><button>Logout</button></a>
+    <div class="private-container">
+        <header>
+            <h1>Bem-vindo, {{ user.username }}!</h1>
+        </header>
+        
+        <!-- Carrossel de Imagens -->
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="{% static 'img/Bugatti.jpg' %}" alt="Bugatti">
+                <img src="{% static 'img/Lambo.jpg' %}" alt="Lamborghini">
+                <img src="{% static 'img/Mustang.jpg' %}" alt="Mustang">
+            </div>
+        </div>
+
+        <nav>
+            <ul class="menu">
+                <li><a href="{% url 'carros:listar_carros' %}" class="menu-link">Ver lista de carros</a></li>
+                <li><a href="{% url 'carros:cadastrar_carro' %}" class="menu-link">Cadastrar novo carro</a></li>
+            </ul>
+        </nav>
+        
+        <footer>
+            <a href="{% url 'carros:logout' %}" class="logout-button">Logout</a>
+        </footer>
+    </div>
 </body>
 </html>

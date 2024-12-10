@@ -2,26 +2,38 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Carros</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/listar_carros.css' %}">
 </head>
 <body>
-    <h1>Carros Disponíveis</h1>
-    <ul>
-        {% for carro in carros %}
-        <li>
-            <a href="{% url 'carros:detalhes_carro' carro.id %}">
-                {{ carro.marca }} {{ carro.modelo }} ({{ carro.ano }})
-            </a> - R$ {{ carro.preco }}
-            {% if carro.imagem %}
-                <br>
-                <img src="{{ carro.imagem.url }}" alt="Imagem de {{ carro.marca }}" width="200">
-            {% endif %}
-        </li>
-        {% empty %}
-        <p>Nenhum carro disponível no momento.</p>
-        {% endfor %}
-    </ul>
-    <br>
-    <a href="{% url 'carros:cadastrar_carro' %}">Cadastrar novo carro</a>
+    <div class="carros-container">
+        <header>
+            <h1>Carros Disponíveis</h1>
+        </header>
+        
+        <ul class="carros-list">
+            {% for carro in carros %}
+            <li class="carro-item">
+                <a href="{% url 'carros:detalhes_carro' carro.id %}" class="carro-link">
+                    <strong>{{ carro.marca }} {{ carro.modelo }}</strong> ({{ carro.ano }})
+                </a> 
+                <span class="carro-preco">- R$ {{ carro.preco }}</span>
+                {% if carro.imagem %}
+                <div class="carro-imagem">
+                    <img src="{{ carro.imagem.url }}" alt="Imagem de {{ carro.marca }}" width="200">
+                </div>
+                {% endif %}
+            </li>
+            {% empty %}
+            <p class="sem-carros">Nenhum carro disponível no momento.</p>
+            {% endfor %}
+        </ul>
+
+        <div class="novo-carro">
+            <a href="{% url 'carros:cadastrar_carro' %}" class="novo-carro-link">Cadastrar novo carro</a>
+        </div>
+    </div>
 </body>
 </html>

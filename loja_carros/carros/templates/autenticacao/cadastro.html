@@ -1,40 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/cadastro.css' %}">
 </head>
 <body>
-    <h2>Cadastro</h2>
-    <form method="POST">
-        {% csrf_token %}
+    <div class="cadastro-container">
+        <h2>Cadastro</h2>
+        <form method="POST">
+            {% csrf_token %}
+            
+            <!-- Campo para o nome de usuário -->
+            <div class="form-group">
+                <label for="username">Nome de Usuário:</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            
+            <!-- Campo para o email -->
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            
+            <!-- Campo para a senha -->
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            
+            <!-- Campo para confirmar a senha -->
+            <div class="form-group">
+                <label for="password_confirm">Confirmar Senha:</label>
+                <input type="password" name="password_confirm" id="password_confirm" required>
+            </div>
+            
+            <!-- Botão de cadastro -->
+            <button type="submit" class="btn">Cadastrar</button>
+        </form>
         
-        <!-- Campo para o nome de usuário -->
-        <label for="username">Nome de Usuário:</label>
-        <input type="text" name="username" id="username" required><br><br>
-        
-        <!-- Campo para o email -->
-        <label for="email">E-mail:</label>
-        <input type="email" name="email" id="email" required><br><br>
-        
-        <!-- Campo para a senha -->
-        <label for="password">Senha:</label>
-        <input type="password" name="password" id="password" required><br><br>
-        
-        <!-- Campo para confirmar a senha -->
-        <label for="password_confirm">Confirmar Senha:</label>
-        <input type="password" name="password_confirm" id="password_confirm" required><br><br>
-        
-        <button type="submit">Cadastrar</button>
-    </form>
-    
-    <p>Já tem uma conta? <a href="{% url 'carros:login' %}">Faça login</a></p>
+        <p>Já tem uma conta? <a href="{% url 'carros:login' %}">Faça login</a></p>
 
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+        <!-- Mensagens de erro -->
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
 </body>
 </html>

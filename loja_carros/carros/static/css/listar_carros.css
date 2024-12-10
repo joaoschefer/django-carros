@@ -1,0 +1,89 @@
+/* Reset básico */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container principal */
+.carros-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Título da página */
+header h1 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Lista de carros */
+.carros-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.carro-item {
+    margin-bottom: 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.carro-link {
+    text-decoration: none;
+    font-size: 18px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.carro-link:hover {
+    color: #0056b3;
+}
+
+.carro-preco {
+    color: #28a745;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.carro-imagem img {
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Mensagem quando não há carros */
+.sem-carros {
+    font-size: 16px;
+    color: #dc3545;
+    margin-top: 20px;
+}
+
+/* Botão para cadastrar novo carro */
+.novo-carro {
+    margin-top: 20px;
+}
+
+.novo-carro-link {
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.novo-carro-link:hover {
+    background-color: #0056b3;
+}

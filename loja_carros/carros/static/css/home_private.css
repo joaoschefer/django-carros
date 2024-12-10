@@ -1,0 +1,109 @@
+/* Reset básico */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container geral */
+.private-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Header */
+header h1 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Carrossel */
+.carousel {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-images {
+    display: flex;
+    width: 300%; /* Três imagens */
+    animation: slide 12s infinite;
+}
+
+.carousel-images img {
+    width: 100%; /* Cada imagem ocupa 100% do contêiner */
+    flex-shrink: 0;
+    object-fit: cover;
+    height: 300px; /* Ajuste conforme necessário */
+}
+
+@keyframes slide {
+    0%, 33% {
+        transform: translateX(0); /* Primeira imagem */
+    }
+    34%, 66% {
+        transform: translateX(-100%); /* Segunda imagem */
+    }
+    67%, 100% {
+        transform: translateX(-200%); /* Terceira imagem */
+    }
+}
+
+/* Menu */
+nav .menu {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+nav .menu li {
+    margin-bottom: 10px; 
+}
+
+nav .menu-link {
+    display: inline-block;
+    text-decoration: none; /* Remove o sublinhado */
+    font-size: 16px;
+    color: #007bff;
+    font-weight: bold;
+    border: 2px solid #007bff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+    width: 50%; /* Ajusta o botão para ficar alinhado */
+}
+
+nav .menu-link:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Botão de logout */
+.logout-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
